@@ -17,7 +17,7 @@ public class User {
     @Id
     private final Long id;
     @Column("user_name")
-    private final String userName;
+    private final String username;
     private final String name;
     private final String email;
     private final Type type;

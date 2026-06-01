@@ -49,7 +49,7 @@
             <div class="user-avatar" th:text="${#strings.substring(session.user.name,0,1)}">U</div>
             <div class="user-info">
                 <div class="user-name" th:text="${session.user.name}">Nombre Apellido</div>
-                <div class="user-meta">Usuario: <span th:text="${session.user.userName}">username</span></div>
+                <div class="user-meta">Usuario: <span th:text="${session.user.username}">username</span></div>
                 <div class="user-meta">Email: <span th:text="${session.user.email}">email@example.com</span></div>
             </div>
         </div>

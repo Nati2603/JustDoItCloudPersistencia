@@ -40,7 +40,7 @@
         <div class="user-card">
             <div class="user-avatar" th:text="${user.name != null} ? ${user.name.substring(0,1)} : 'U'">U</div>
             <div class="user-info">
-                <div><strong th:text="${user.name}">Nombre Usuario</strong> <span style="color:#666">(<span th:text="${user.userName}">username</span>)</span></div>
+                <div><strong th:text="${user.name}">Nombre Usuario</strong> <span style="color:#666">(<span th:text="${user.username}">username</span>)</span></div>
                 <div>Email: <span th:text="${user.email}">email@example.com</span></div>
                 <div>Tipo: <span th:text="${user.type}">REGULAR</span></div>
             </div>
