@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import teccr.justdoitcloud.data.Task;
 import teccr.justdoitcloud.data.User;
 import teccr.justdoitcloud.service.TaskService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 
@@ -46,6 +47,15 @@ public class UserTasksController {
         }
 
         taskService.addTaskToUser(user, newTask);
+        return "redirect:/user/tasks";
+    }
+
+    @PostMapping("/advance")
+    public String advanceTask(@RequestParam Long taskId,
+                              @ModelAttribute("user") User user) {
+
+        taskService.advanceTask(taskId);
+
         return "redirect:/user/tasks";
     }
 }

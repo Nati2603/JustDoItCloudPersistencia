@@ -79,6 +79,10 @@
                 <div th:each="task : ${user.tasks.?[status.name() == 'PENDING']}">
                     <div class="task-item pending">
                         <div class="task-desc" th:text="${task.description}">Descripción de la tarea...</div>
+                        <form method="POST" th:action="@{/user/tasks/advance}">
+                            <input type="hidden" name="taskId" th:value="${task.id}" />
+                            <button type="submit">Avanzar</button>
+                        </form>
                         <div>
                             <strong>Fecha límite:</strong>
                             <span th:text="${task.deadline != null} ? ${#temporals.format(task.deadline, 'dd/MMMM/yyyy')} : 'No especificada'">
@@ -98,6 +102,10 @@
                 <div th:each="task : ${user.tasks.?[status.name() == 'INPROGRESS']}">
                     <div class="task-item inprogress">
                         <div class="task-desc" th:text="${task.description}">Descripción de la tarea...</div>
+                        <form method="POST" th:action="@{/user/tasks/advance}">
+                            <input type="hidden" name="taskId" th:value="${task.id}" />
+                            <button type="submit">Avanzar</button>
+                        </form>
                     </div>
                 </div>
             </section>

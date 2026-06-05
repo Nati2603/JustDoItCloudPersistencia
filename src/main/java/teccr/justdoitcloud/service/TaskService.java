@@ -24,4 +24,28 @@ public class TaskService {
         task.setUserId(user.getId());
         taskRepository.save(task);
     }
+    public void advanceTask(Long taskId) {
+
+        Task task = taskRepository.findById(taskId).orElseThrow();
+
+        Task.Status newStatus = task.getStatus();
+
+        if (task.getStatus() == Task.Status.PENDING) {
+            newStatus = Task.Status.INPROGRESS;
+        } else if (task.getStatus() == Task.Status.INPROGRESS) {
+            newStatus = Task.Status.DONE;
+        }
+
+        Task updatedTask = new Task(
+                task.getId(),
+                task.getDescription(),
+                task.getCreatedAt(),
+                task.getDeadline(),
+                newStatus
+        );
+
+        updatedTask.setUserId(task.getUserId());
+
+        taskRepository.save(updatedTask);
+    }
 }
